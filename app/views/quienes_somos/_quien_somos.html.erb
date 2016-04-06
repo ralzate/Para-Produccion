@@ -1,0 +1,21 @@
+
+<tr id=<%= "quien_somos_#{quien_somos.id}" %>
+	>
+	<td>
+		<%= truncate(quien_somos.mision.capitalize, :length =>120, :omission => "" , :escape => false) %>...</td>
+	<td>
+		<%= truncate(quien_somos.vision.capitalize, :length =>120, :omission => "" , :escape => false) %>...</td>
+	<td>
+		<%= truncate(quien_somos.politica_integral.capitalize, :length =>120, :omission => "" , :escape => false) %>...</td>
+	<td>
+		<%= truncate(quien_somos.valores_corporativos.capitalize, :length =>120, :omission => "" , :escape => false) %>...</td>
+
+	<td align="center">
+		<%= link_to quien_somos, :remote =>
+		true, class: "btn btn-default", title: "Ver quien_somos" do %> <em class="fa fa-eye"></em>
+		<% end %>
+		<%= link_to edit_quien_somos_path(quien_somos), :remote =>
+		true, class: "btn btn-primary", title: "Editar quien_somos" do %> <em class="fa fa-pencil-square-o"></em>
+		<% end %></td>
+
+</tr>

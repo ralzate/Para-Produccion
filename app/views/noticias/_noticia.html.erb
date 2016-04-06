@@ -1,0 +1,26 @@
+
+<tr id=<%= "noticia_#{noticia.id}" %>
+  >
+  <td style="text-align: center;">
+    <%= link_to noticia.id, edit_noticia_path(noticia), :remote =>true %></td>
+  <td>
+    <%= truncate(noticia.titulo.capitalize, :length =>40, :omission => "" , :escape => false) %>....</td>
+  <td>
+    <%= truncate(noticia.descripcion.capitalize, :length =>50, :omission => "" , :escape => false) %>....</td>
+
+  <% if noticia.estado_noticia == "Publicada" %>
+  <td class="success">
+    <%= noticia.estado_noticia %></td>
+  <% else %>
+  <td class="danger">
+    <%= noticia.estado_noticia %></td>
+  <% end %>
+  <td align="center">
+    <%= link_to noticia, :remote =>
+    true, class: "btn btn-default", title: "Ver Noticia" do %> <em class="fa fa-eye"></em>
+    <% end %>
+    <%= link_to edit_noticia_path(noticia), :remote =>
+    true, class: "btn btn-primary", title: "Editar Noticia" do %> <em class="fa fa-pencil-square-o"></em>
+    <% end %></td>
+
+</tr>

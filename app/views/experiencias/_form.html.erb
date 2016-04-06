@@ -1,0 +1,161 @@
+
+
+<%= simple_form_for @experiencia, html: { multipart: true, :remote =>      
+true, authenticity_token: true  } do |f| %>
+<% if @experiencia.errors.any? %>      
+<div id="error_explanation" >
+  <h2>Por Favor Verificar:</h2>
+
+  <ul class="list-group alert alert-danger">
+    <% @experiencia.errors.full_messages.each do |message| %>      
+    <li class="list-group-item ">
+      <%= message %></li>
+    <% end %></ul>
+</div>
+<% end %>      
+
+<div class="container">
+
+  <div class="page-header">
+    <h1>Crea una nueva experiencia.</h1>
+  </div>
+
+  <div class="well clearfix">
+    <div class="row">
+
+      <div class="col-md-4">
+        <%= f.label :nombre, 'Nombre' %>      
+        <div class="form-group">
+          <%= f.text_field :nombre, :label =>      
+          false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <%= f.label :entidad, 'Entidad' %>      
+        <div class="form-group">
+          <%= f.text_field :entidad, :label =>      
+          false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <%= f.label :contratante, 'Contratante' %>      
+        <div class="form-group">
+          <%= f.text_field :contratante, :label =>      
+          false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.label :unidad_de_negocio, 'Unidad De Negocio' %>      
+        <div class="form-group">
+          <%= f.text_field :unidad_de_negocio, :label =>      
+          false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <%= f.label :ciudad, 'Ciudad' %>      
+        <div class="form-group">
+          <%= f.text_field :ciudad, :label =>      
+          false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <%= f.label :valor_contrato, 'Valor Contrato' %>      
+        <div class="form-group">
+          <%= f.text_field :valor_contrato, :label =>      
+          false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-4">
+        <%= f.label :fecha_inicio, 'Fecha Inicio' %>      
+        <div class="form-group">
+          <%= f.date_select :fecha_inicio,{
+                  :start_year =>      
+          Time.now.year,
+                  :end_year => 1900,
+                  :use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'],
+                  :use_short_month => true,
+                  :order => [:day, :month, :year],
+                  :prompt => {:month => 'Mes', :day => 'Dia', :year => 'Año'}},
+                  {:class => 'year form-control line1 required',
+                  :id => 'user_birthday' , :title => "Es un Campo Obligatorio" }
+                %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+
+        <%= f.label :fecha_terminacion, 'Fecha Terminacion' %>      
+
+        <div class="form-group">
+          <%= f.date_select :fecha_terminacion,{
+                  :start_year =>      
+          Time.now.year,
+                  :end_year => 1900,
+                  :use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'],
+                  :use_short_month => true,
+                  :order => [:day, :month, :year],
+                  :prompt => {:month => 'Mes', :day => 'Dia', :year => 'Año'}},
+                  {:class => 'year form-control line1 required',
+                  :id => 'user_birthday' , :title => "Es un Campo Obligatorio" }
+                %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <%= f.label :numero_contrato, 'Numero Contrato' %>      
+        <div class="form-group">
+          <%= f.text_field :numero_contrato, :label =>      
+          false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+    <div class="row">
+
+      <div class="col-md-1">Estado:</div>
+      <div class="col-md-2">
+
+        <%= f.label :estado_experiencia, 'Publicada' %></div>
+      <div class="col-md-2" style="margin-top: -10px;">
+
+        <%= f.radio_button(:estado_experiencia, "Publicada", :id =>
+        "Publicada", :title => "Es un Campo Obligatorio", :class => "form-control checbkbox_noticia" )%>
+      </div>
+      <div class="col-md-2">
+
+        <%= f.label :estado_experiencia, 'No Publicada' %></div>
+
+      <div class="col-md-2" style="margin-top: -10px;">
+
+        <%= f.radio_button(:estado_experiencia, "No Publicada", :id =>
+        "No Publicada", :title => "Es un Campo Obligatorio", :class => "form-control checbkbox_noticia" )%>
+      </div>
+    </div>
+
+
+    <div class="modal-footer">
+      <%= f.submit "Guardar", :class =>      
+      'btn btn-info color_blanco custom' %>
+      <a href="#" class="btn btn-default" onclick="$.lazybox.close()">Cerrar</a>
+    </div>
+
+  </div>
+</div>
+
+<% end %>      

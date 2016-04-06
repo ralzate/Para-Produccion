@@ -1,0 +1,101 @@
+    <div class="searchbar searchbar-light">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" name="search" value="" placeholder="Search" />
+                <span class="input-group-btn"><button type="button" class="btn-close"></button></span>
+            </div><!-- /input-group -->
+        </div><!-- /container -->
+    </div><!-- /searchbar -->
+
+<style>
+
+</style>
+
+    <div class="top-header top-header-2">
+        <div class="container">
+            <div class="top-left">
+                <ul class="social-header">
+                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/?lang=es" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://es.pinterest.com/" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-wordpress"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-rss"></i></a></li>
+                </ul><!-- /social-header -->
+            </div><!-- /top-left -->
+            <div class="top-right">
+                <ul class="info-header">
+                    <li><i class="icon icon-globe"></i>Language: English</li>
+                    <li><i class="icon icon-phone"></i>(123) 45678910</li>
+                    <li><i class="icon icon-clock"></i>Mon - Sat: 9:00 - 18:00</li>
+                </ul><!-- /info-header -->
+            </div><!-- /top-right -->
+        </div><!-- /container -->
+    </div><!-- /top-header -->
+
+    <div class="main-header main-header-4">
+        <div class="container">
+            <!-- LOGO -->
+            <div class="logo">
+
+
+
+            <%= link_to root_url do %>
+              <%= image_tag "Logo/logo_servidual.png", :width => 250 %>
+            <% end %>
+            </div><!-- /#logo -->
+            <!-- END / LOGO -->
+
+            <!-- MOBILE MENU -->
+            <div class="mobile-nav-menu" data-menu-number="4">
+                <span class="icon">&nbsp;</span>
+            </div><!-- /mobile-nav-menu -->
+            <!-- /END MOBILE MENU -->
+
+            <!-- SEARCH BUTTON -->
+            <div class="search-btn"><span class="fa fa-search"></span></div>
+            <!-- END / SEARCH BUTTON -->
+
+            <!-- NAVIGATION -->
+            <nav class="navigation nav4" data-menu-type="1199">
+                <ul class="nav text-uppercase">
+
+                  <li  class="active"><%= link_to 'INICIO', root_url %></li>
+                  <% if current_usuario %>
+                  <li>
+                    <%= link_to "NOTICIAS", noticias_path %></li>
+                  <li>
+                    <%= link_to "EXPERIENCIAS", experiencias_path %></li>
+                  <li>
+                    <%= link_to "SERVICIOS", servicios_path %></li>
+                  <li>
+                    <%= link_to "QUIENES SOMOS", quienes_somos_path %></li>
+                  <li>
+                    <%= link_to "USUARIOS", usuarios_path %></li>
+                  <li>
+                    <%= link_to "CONTACTOS", contactos_path %></li>
+                  <% else %>
+                  <li>
+                    <%= link_to "NOTICIAS", {:action => 'comunicados', :controller => '/welcome'} %>
+                  </li>
+                  <li>
+                    <%= link_to "EXPERIENCIAS", {:action => 'experiencias', :controller => '/welcome'} %>
+                  </li>
+                  <li>
+                    <%= link_to "SERVICIOS", {:action => 'servicios', :controller => '/welcome'} %>
+                  </li>
+                  <li>
+                    <%= link_to "QUIENES SOMOS", {:action => 'quienes_somos', :controller => '/welcome'} %>
+                  </li>
+                  <li>
+                    <%= link_to "CONTACTANOS", {:action => 'contactanos', :controller => '/welcome'} %>
+                  </li>
+                  <% end %>
+                </ul><!-- /nav -->
+            </nav>
+            <!-- END / NAVIGATION -->
+        </div><!-- /container -->
+    </div><!-- /main-header -->

@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require lazybox
+ *= require jasny-bootstrap
+ *= require font-awesome
+ *= require common
+ *= require_self
+ */
+
+
+
+/* Todos los Index */
+
+.panel-table .panel-body{
+  padding:0;
+}
+
+.panel-table .panel-body .table-bordered{
+  border-style: none;
+  margin:0;
+}
+
+.panel-table .panel-body .table-bordered > thead > tr > th:first-of-type {
+  text-align:center;
+  width: 100px;
+}
+
+.panel-table .panel-body .table-bordered > thead > tr > th:last-of-type,
+.panel-table .panel-body .table-bordered > tbody > tr > td:last-of-type {
+  border-right: 0px;
+}
+
+.panel-table .panel-body .table-bordered > thead > tr > th:first-of-type,
+.panel-table .panel-body .table-bordered > tbody > tr > td:first-of-type {
+  border-left: 0px;
+}
+
+.panel-table .panel-body .table-bordered > tbody > tr:first-of-type > td{
+  border-bottom: 0px;
+}
+
+.panel-table .panel-body .table-bordered > thead > tr:first-of-type > th{
+  border-top: 0px;
+}
+
+.panel-table .panel-footer .pagination{
+  margin:0; 
+}
+
+/*
+used to vertically center elements, may need modification if you're not using default sizes.
+*/
+.panel-table .panel-footer .col{
+  line-height: 34px;
+  height: 34px;
+}
+
+.panel-table .panel-heading .col h3{
+  line-height: 30px;
+  height: 30px;
+}
+
+.panel-table .panel-body .table-bordered > tbody > tr > td{
+  line-height: 34px;
+}
+
+
+/* Noticias */
+.checbkbox_noticia{
+  width: 20px;
+  box-shadow: none;
+}
+
+/* Margen lazybox */
+#lazybox{
+  margin-top: 50px !important;
+}
+
+/* Formulario Experiencias */
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+.panel-heading {
+  background-image: none;
+  background-color: #ECECEC;
+  color: #5bc0de;
+  font-family: 'Roboto', sans-serif;
+}
+
+.panel-title{
+  font-size: 30px;   
+}
+.pie_form{
+  background-image: none;
+  background-color: #ECECEC;
+  color: white;   
+}
+.line1
+{
+  display: inline-block;
+  width: 30% !important;
+}
+

@@ -1,0 +1,10 @@
+rails g scaffold noticia titulo descripcion:text
+
+rails g scaffold experiencia nombre entidad contratante unidad_de_negocio ciudad fecha_inicio:date fecha_terminacion:date valor_contrato:integer numero_contrato 
+
+rails g scaffold servicio nombre descripcion:text
+
+rails g scaffold quien_somos mision:text vision:text politica_integral:text valores_corporativos:text historia:text descripcion:text
+
+rails g controller comunicados index
+

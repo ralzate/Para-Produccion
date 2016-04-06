@@ -1,0 +1,88 @@
+<style type="text/css" media="screen">
+  #lazybox{
+    margin-top: 50px !important;
+  }
+</style>
+
+<script>
+  CKEDITOR.replace('quien_somos[mision]');
+  CKEDITOR.replace('quien_somos[vision]');
+  CKEDITOR.replace('quien_somos[politica_integral]');
+  CKEDITOR.replace('quien_somos[valores_corporativos]');
+  CKEDITOR.replace('quien_somos[historia]');
+</script>
+
+<%= form_for(@quien_somos, html: { multipart: true, :remote =>
+true, authenticity_token: true   }) do |f| %>
+<% if @quien_somos.errors.any? %>
+<div id="error_explanation" >
+  <h2>Por Favor Verificar:</h2>
+
+  <ul class="list-group alert alert-danger">
+    <% @quien_somos.errors.full_messages.each do |message| %>
+    <li class="list-group-item ">
+      <%= message %></li>
+    <% end %></ul>
+</div>
+<% end %>
+
+<div class="container">
+
+  <div class="page-header">
+    <h1>Quienes Somos</h1>
+  </div>
+
+  <div class="well clearfix">
+    <div class="row">
+      <div class="col-md-6">
+        <label class="control-label" for="firstname">Misión</label>
+        <%= f.cktext_area :mision, :label =>
+        false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+      </div>
+
+      <div class="col-md-6">
+        <label class="control-label">Visión</label>
+        <%= f.cktext_area :vision, :label =>
+        false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+      </div>
+    </div>
+
+    <br/>
+    <br/>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label class="control-label" for="firstname">Politica Integral</label>
+        <%= f.cktext_area :politica_integral, :label =>
+        false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+      </div>
+
+      <div class="col-md-6">
+        <label class="control-label">Valores Corporativos</label>
+        <%= f.cktext_area :valores_corporativos, :label =>
+        false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+      </div>
+    </div>
+
+    <br/>
+    <br/>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label class="control-label" for="firstname">Historia</label>
+        <%= f.cktext_area :historia, :label =>
+        false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+      </div>
+
+    </div>
+
+    <div class="modal-footer">
+      <%= f.submit "Guardar", :class =>
+      'btn btn-info color_blanco custom' %>
+      <a href="#" class="btn btn-default" onclick="$.lazybox.close()">Cerrar</a>
+    </div>
+
+  </div>
+</div>
+
+<% end %>

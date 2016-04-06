@@ -1,0 +1,2 @@
+$('tr#noticia_<%= @noticia.id %>').replaceWith("<%= escape_javascript(render @noticia) %>")
+$.lazybox.close()

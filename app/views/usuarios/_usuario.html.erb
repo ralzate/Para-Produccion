@@ -1,0 +1,17 @@
+
+<tr id=<%= "usuario_#{usuario.id}" %>
+	>
+	<td style="text-align: center;"><%= link_to usuario.id, edit_usuario_path(usuario), :remote =>true %></td>
+	<td><%= usuario.nombre %></td>
+
+	<td><%= usuario.email %></td>
+
+	<td align="center">
+		<%= link_to usuario, :remote =>
+		true, class: "btn btn-default", title: "Ver usuario" do %> <em class="fa fa-eye"></em>
+		<% end %>
+		<%= link_to edit_usuario_path(usuario), :remote =>
+		true, class: "btn btn-primary", title: "Editar usuario" do %> <em class="fa fa-pencil-square-o"></em>
+		<% end %></td>
+
+</tr>

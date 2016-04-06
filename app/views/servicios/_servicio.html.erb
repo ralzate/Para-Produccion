@@ -1,0 +1,28 @@
+
+<tr id=<%= "servicio_#{servicio.id}" %>
+	>
+	<td style="text-align: center;">
+		<%= link_to servicio.id, edit_servicio_path(servicio), :remote =>true %></td>
+	<td>
+		<%= servicio.tipo.capitalize %></td>
+	<td>
+
+	<% if servicio.descripcion.length > 110 %>
+    <%= truncate(servicio.descripcion.capitalize, :length =>120, :omission => "" , :escape => false) %>
+    <% else %>
+    <%= servicio.descripcion.capitalize.html_safe %>
+    <% end %>
+
+    </td>
+
+
+
+	<td align="center">
+		<%= link_to servicio, :remote =>
+		true, class: "btn btn-default", title: "Ver servicio" do %> <em class="fa fa-eye"></em>
+		<% end %>
+		<%= link_to edit_servicio_path(servicio), :remote =>
+		true, class: "btn btn-primary", title: "Editar Servicio" do %> <em class="fa fa-pencil-square-o"></em>
+		<% end %></td>
+
+</tr>

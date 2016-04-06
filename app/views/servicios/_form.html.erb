@@ -1,0 +1,83 @@
+<style type="text/css" media="screen">
+  #lazybox{
+    margin-top: 50px !important;
+  }
+</style>
+
+<script>CKEDITOR.replace('servicio[descripcion]');</script>
+
+
+<%= simple_form_for @servicio, html: {multipart: true, :remote => true, authenticity_token: true } do |f| %>
+
+
+<% if @servicio.errors.any? %>
+<div id="error_explanation" >
+  <h2>Por Favor Verificar:</h2>
+  <ul class="list-group alert alert-danger">
+    <% @servicio.errors.full_messages.each do |message| %>
+    <li class="list-group-item ">
+      <%= message %></li>
+    <% end %></ul>
+</div>
+<% end %>
+
+<div class="container">
+
+  <div class="page-header">
+    <h1>Datos Servicio</h1>
+  </div>
+
+  <div class="well clearfix">
+    <div class="row">
+      <div class="col-md-12">
+        <label class="control-label" for="firstname">Nombre</label>
+
+        <%= f.input :tipo,
+          prompt:       'Seleccionar un Tipo de Servicio',
+          collection: @servicio.select_tipo,
+          error: false, label: false,
+          input_html:   {class: 'form-control'},
+          required: true  %>
+
+      </div>
+    </div>
+
+    <br/>
+    <div class="row">
+      <div class="col-md-12">
+        <label class="control-label">Descripción</label>
+        <%= f.cktext_area :descripcion, :label =>
+        false, class: "form-control", placeholder: 'Campo Obligatorio' %>
+      </div>
+    </div>
+    <br/>
+
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+          <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTAiIGhlaWdodD0iMTQwIj48cmVjdCB3aWR0aD0iMTkwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijk1IiB5PSI3MCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXdlaWdodDpib2xkO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE5MHgxNDA8L3RleHQ+PC9zdmc+" alt="..."></div>
+          <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+          <div>
+            <span class="btn btn-default btn-file">
+              <span class="fileinput-new">Seleccionar una Imagen</span>
+              <span class="fileinput-exists">Cambiar Imagen</span>
+              <%= f.file_field :imagen %></span>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Eliminar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/>
+
+    <div class="modal-footer">
+      <%= f.submit "Guardar", :class =>
+      'btn btn-info color_blanco custom' %>
+      <a href="#" class="btn btn-default" onclick="$.lazybox.close()">Cerrar</a>
+    </div>
+
+  </div>
+</div>
+
+<% end %>

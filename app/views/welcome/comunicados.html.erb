@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="row">
+      <div class="col-md-9">
+        <h1 class="title">Noticias</h1>
+      </div>
+      <div class="col-md-3">
+        <!-- Controls -->
+        <div class="controls pull-right">
+          <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
+                        data-slide="prev"></a>
+          <a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
+                            data-slide="next"></a>
+        </div>
+      </div>
+    </div>
+    <div id="carousel-example" class="carousel slide" data-ride="carousel">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+
+        <div class="item active">
+          <div class="row">
+            <% @comunicados.each do |noticia| %>
+
+            <div class="col-sm-3">
+              <div class="col-item">
+                <div class="photo">
+                  <% if noticia.imagen.exists? %>
+                  <%= image_tag noticia.imagen.url, :class =>
+                  "img-responsive img-noticia " %>
+                  <% else %>
+                  <%= image_tag "news paper1.png", :class =>
+                  "img-responsive img-noticia " %>
+                  <% end %></div>
+                <div class="info">
+                  <div class="row">
+                    <div class="price col-md-12">
+                      <h5 class="title">
+                        <%= noticia.titulo %></h5>
+                      <h5>
+                        <%= truncate(noticia.descripcion.capitalize, :length =>300, :omission => "" , :escape => false) %></h5>
+
+                      <%= link_to "Label", :controller =>
+                      :welcome, :action => :mostrar_comunicado, :noticia => noticia.id  %>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %></div>
+        </div>
+        <div class="item">
+          <div class="row">
+
+            <% @comunicados2.each do |noticia| %>
+
+            <div class="col-sm-3">
+              <div class="col-item">
+                <div class="photo">
+                  <% if noticia.imagen.exists? %>
+                  <%= image_tag noticia.imagen.url, :class =>
+                  "img-responsive img-noticia " %>
+                  <% else %>
+                  <%= image_tag "news paper1.png", :class =>
+                  "img-responsive img-noticia " %>
+                  <% end %></div>
+                <div class="info">
+                  <div class="row">
+                    <div class="price col-md-6">
+                      <h5>
+                        <%= noticia.titulo %></h5>
+                      <h5 class="price-text-color">
+                        <%= noticia.descripcion.html_safe %></h5>
+
+                      <%= link_to "Label", :controller =>
+                      :welcome, :action => :mostrar_comunicado, :noticia => noticia.id  %>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

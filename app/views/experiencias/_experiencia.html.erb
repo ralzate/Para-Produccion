@@ -1,0 +1,21 @@
+
+<tr id=<%= "experiencia_#{experiencia.id}" %>
+	>
+	<td style="text-align: center;">
+		<%= link_to experiencia.id, edit_experiencia_path(experiencia), :remote =>true %></td>
+	<td>
+		<%= experiencia.nombre %></td>
+	<td>
+		<%= experiencia.fecha_inicio %></td>
+	<td>
+		<%= experiencia.fecha_terminacion %></td>
+
+	<td align="center">
+		<%= link_to experiencia, :remote =>
+		true, class: "btn btn-default", title: "Ver experiencia" do %> <em class="fa fa-eye"></em>
+		<% end %>
+		<%= link_to edit_experiencia_path(experiencia), :remote =>
+		true, class: "btn btn-primary", title: "Editar Arl" do %> <em class="fa fa-pencil-square-o"></em>
+		<% end %></td>
+
+</tr>

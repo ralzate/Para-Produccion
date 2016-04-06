@@ -1,0 +1,26 @@
+
+            <% @quienes_somos.each do |quienes_somos| %>
+
+            <div class="col-sm-3">
+              <div class="col-item">
+
+
+                <div class="info">
+                  <div class="row">
+                    <div class="price col-md-12">
+                      <h5 class="title">
+                        <%= quienes_somos.mision.html_safe %><br/>
+                        <%= quienes_somos.vision.html_safe %><br/>
+                        <%= quienes_somos.politica_integral.html_safe %><br/>
+                        <%= quienes_somos.valores_corporativos.html_safe %><br/>
+                        <%= quienes_somos.historia.html_safe %><br/>
+
+                      <h5>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
